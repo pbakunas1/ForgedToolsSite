@@ -121,6 +121,14 @@ h1 {
   margin: 76px 0 0 auto;
 }
 
+.product-icon {
+  display: block;
+  width: 160px;
+  height: auto;
+  margin-bottom: 28px;
+  border-radius: 12px;
+}
+
 .product h2 {
   margin: 16px 0 28px;
   font-family: Georgia, "Times New Roman", serif;
