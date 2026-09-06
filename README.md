@@ -5,6 +5,9 @@ GitHub: [pbakunas1/ForgedToolsSite](https://github.com/pbakunas1/ForgedToolsSite
 Cloudflare Pages project: `forgedtoolssite`; Pages URL: https://forgedtoolssite.pages.dev.
 Production branch: `main` (merging publishes through the existing Pages Git integration).
 
+Production domain: https://forgedtools.ai. Return Here: https://forgedtools.ai/return-here/.
+Privacy and Support remain at their existing root URLs (`/privacy.html` and `/support.html`, served by Pages as `/privacy` and `/support`).
+
 ## Site and local review
 
 Plain static HTML/CSS: no framework, dependencies, or build step. Files are served
@@ -50,7 +53,8 @@ before choosing a rollback target; this baseline is not a verified deployment ID
 
 ## Site and app link maintenance
 
-- `index.html`: homepage copy, Return Here product section, and App Store link
+- `index.html`: Forged Tools corporate homepage with the first featured product linking to `/return-here/`.
+- `return-here/index.html`: Return Here landing page and App Store link
   (currently https://apps.apple.com/app/id6803208554). There is no Play Store link;
   add one here only when the Android listing is available and verified.
 - `styles.css`: shared layout and styling for all pages.
