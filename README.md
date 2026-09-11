@@ -53,17 +53,25 @@ before choosing a rollback target; this baseline is not a verified deployment ID
 
 ## Site and app link maintenance
 
-- `index.html`: Forged Tools corporate homepage with the first featured product linking to `/return-here/`.
-- `return-here/index.html`: Return Here landing page and App Store link
-  (currently https://apps.apple.com/app/id6803208554). There is no Play Store link;
-  add one here only when the Android listing is available and verified.
-- `styles.css`: shared layout and styling for all pages.
+- `index.html`: Forged Tools corporate homepage with Return Here featured first and current dual-platform availability.
+- `return-here/index.html`: Return Here landing page with both store links:
+  - App Store: https://apps.apple.com/app/id6803208554
+  - Google Play: https://play.google.com/store/apps/details?id=ai.forgedtools.here
+- `styles.css`: corporate/global site styling.
+- `return-here.css`: Return Here landing-page styling.
 - `privacy.html`: privacy statements and last-updated date; keep aligned with
   actual website/app behavior.
 - `support.html`: product support copy. Contact links use `hello@forgedtools.ai`
   across all three HTML files; update them together if the address changes.
 - Preserve `privacy.html` and `support.html` URLs used by store listings. When
   changing domains or URLs, update store metadata and verify existing links.
+- Keep social/profile CTAs pointed to the Return Here product page when practical so the website remains the stable cross-platform destination rather than duplicating separate store links everywhere.
+
+## Current storefront state — 2026-09-11
+
+- iOS v1.1 is publicly available on the App Store.
+- Android is publicly available on Google Play under package `ai.forgedtools.here`.
+- Public Google Play listing was manually verified on 2026-09-11 with the intended app name, icon, Forged Tools LLC developer name, $2.99 price, and data-safety disclosures showing no data shared and no data collected.
 
 ## Hosting settings to verify in the dashboard
 
