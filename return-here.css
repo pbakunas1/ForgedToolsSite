@@ -21,6 +21,8 @@ h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; lette
 h1 { font-size: clamp(3.5rem, 6.3vw, 5.7rem); line-height: 1.07; margin-bottom: 32px; }
 h1 em { font-weight: 400; }
 .intro { color: var(--muted); font-size: 1.125rem; margin-bottom: 32px; }
+.store-buttons { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.closing .store-buttons { justify-content: center; }
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 24px; min-height: 54px; padding: 13px 23px; border: 1px solid var(--cream); border-radius: 4px; color: var(--navy); background: var(--cream); text-decoration: none; font-size: 1rem; font-weight: 600; }
 .button:hover { background: #e4dfd3; text-decoration: none; }
 .purchase { font-size: .875rem; color: var(--muted); margin: 17px 0 0; }
@@ -51,7 +53,6 @@ h3 { font-weight: 600; font-size: 1.125rem; margin-bottom: 12px; }
 @media (max-width: 900px) {
   .wrap { width: calc(100% - 48px); }
   .hero { gap: 32px; padding-block: 72px 80px; }
-
   .explanation { gap: 32px; }
   .values { gap: 24px; }
 }
@@ -67,6 +68,8 @@ h3 { font-weight: 600; font-size: 1.125rem; margin-bottom: 12px; }
   .hero-icon { width: 200px; }
   .ritual p { font-size: 1.5rem; }
   .ritual-note { margin-top: 8px; }
+  .store-buttons { align-items: stretch; }
+  .store-buttons .button { width: 100%; }
   .explanation { grid-template-columns: 1fr; gap: 0; padding-block: 56px 44px; }
   .values { grid-template-columns: 1fr; gap: 32px; padding-block: 32px 48px; }
   .values .eyebrow { margin-bottom: 12px; }
