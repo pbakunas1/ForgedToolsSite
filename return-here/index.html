@@ -80,5 +80,12 @@
       </div>
     </main>
   </div>
+  <script>
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        document.querySelector('.demo-media video').pause();
+      }
+    });
+  </script>
 </body>
 </html>
