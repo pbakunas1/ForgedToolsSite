@@ -59,6 +59,9 @@ before choosing a rollback target; this baseline is not a verified deployment ID
   - Google Play: https://play.google.com/store/apps/details?id=ai.forgedtools.here
 - `styles.css`: corporate/global site styling.
 - `return-here.css`: Return Here landing-page styling.
+  Bump the `v` query parameter on its link in `return-here/index.html` when this
+  stylesheet changes. The custom domain currently permits four hours of browser
+  caching, so an unchanged URL can retain a previous layout after deployment.
 - `privacy.html`: privacy statements and last-updated date; keep aligned with
   actual website/app behavior.
 - `support.html`: product support copy. Contact links use `hello@forgedtools.ai`
