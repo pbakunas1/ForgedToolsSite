@@ -35,6 +35,7 @@ h1 em { font-weight: 400; }
 .explanation .eyebrow { padding-top: 10px; }
 h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); line-height: 1.15; margin-bottom: 24px; }
 .explanation p:not(.eyebrow) { max-width: 620px; font-size: 1.125rem; color: var(--ink-muted); margin-bottom: 0; }
+.explanation p + p { margin-top: 20px; }
 .demo { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; padding-block: 16px 80px; }
 .demo-copy .eyebrow { color: var(--ink-muted); margin-bottom: 20px; }
 .demo-copy p:not(.eyebrow) { max-width: 520px; color: var(--ink-muted); font-size: 1.05rem; margin-bottom: 0; }

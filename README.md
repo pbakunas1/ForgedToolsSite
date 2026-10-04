@@ -55,7 +55,7 @@ before choosing a rollback target; this baseline is not a verified deployment ID
 
 - `index.html`: Forged Tools corporate homepage with Return Here featured first and current dual-platform availability.
 - `return-here/index.html`: Return Here landing page with both store links:
-  - App Store: https://apps.apple.com/app/id6803208554
+  - App Store: https://apps.apple.com/us/app/return-here-a-moment/id6803208554
   - Google Play: https://play.google.com/store/apps/details?id=ai.forgedtools.here
 - `styles.css`: corporate/global site styling.
 - `return-here.css`: Return Here landing-page styling.
@@ -70,9 +70,11 @@ before choosing a rollback target; this baseline is not a verified deployment ID
   changing domains or URLs, update store metadata and verify existing links.
 - Keep social/profile CTAs pointed to the Return Here product page when practical so the website remains the stable cross-platform destination rather than duplicating separate store links everywhere.
 
-## Current storefront state — 2026-09-11
+## Current storefront state — 2026-10-04
 
-- iOS v1.1 is publicly available on the App Store.
+- iOS 1.1.1 is publicly available as **Return Here: A Moment** (verified against the US App Store listing). The listing confirms Willow, Oak, Teak, Palm, improved Replay, Favorites, iPhone/iPad support, and US $2.99 pricing.
+- App source confirms 30 shared phrases across four voices (120 bundled recordings), offline audio, and Replay of the displayed phrase in the selected voice. These release claims are scoped to iOS; Android feature parity has not been verified.
+- The existing tutorial predates this release and is explicitly labeled as an earlier version. Replace it with verified iOS 1.1.1 footage when available; no current app screenshots are embedded in the site.
 - Android is publicly available on Google Play under package `ai.forgedtools.here`.
 - Public Google Play listing was manually verified on 2026-09-11 with the intended app name, icon, Forged Tools LLC developer name, $2.99 price, and data-safety disclosures showing no data shared and no data collected.
 
