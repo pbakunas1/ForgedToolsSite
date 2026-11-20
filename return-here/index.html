@@ -13,10 +13,25 @@
   <meta property="og:url" content="https://forgedtools.ai/return-here/">
   <meta property="og:title" content="Return Here — Take a moment. It’s yours.">
   <meta property="og:description" content="No feed. No streak. Just a small moment to breathe, listen, and return.">
-  <meta property="og:image" content="https://forgedtools.ai/assets/return-here-icon.png">
-  <meta property="og:image:alt" content="Return Here cream spiral on navy">
-  <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="/return-here.css?v=2026-11-experience-1">
+  <meta property="og:image" content="https://forgedtools.ai/assets/return-here-social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Return Here: Take a moment. It’s yours. A cream spiral on navy.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/return-here.css?v=2026-11-live-demo-1">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Return Here: A Moment",
+    "url": "https://forgedtools.ai/return-here/",
+    "image": "https://forgedtools.ai/assets/return-here-icon.png",
+    "description": "One button, a moment of breathing, and a short spoken phrase. 50 phrases across Calm, Think, and Move in four voices. No account, ads, or tracking.",
+    "operatingSystem": "iOS, Android",
+    "offers": { "@type": "Offer", "price": "2.99", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Forged Tools LLC", "url": "https://forgedtools.ai/" }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -26,6 +41,7 @@
       <nav aria-label="Main navigation">
         <a href="#experience">The experience</a>
         <a href="#inside">Inside the app</a>
+        <a href="#questions">Questions</a>
         <a class="nav-download" href="#get-the-app">Get the app <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
@@ -40,8 +56,8 @@
           <h1 id="hero-title">Take a moment.<br><em>It’s yours.</em></h1>
           <p class="hero-dek">The world doesn't need another thing from you right now. Press. Breathe. Hear a few words. Come back to what's in front of you.</p>
           <div class="store-buttons" aria-label="Download Return Here">
-            <a class="button button-primary" href="https://play.google.com/store/apps/details?id=ai.forgedtools.here&amp;referrer=utm_source%3Dforgedtools%26utm_medium%3Dwebsite%26utm_campaign%3Dreturn_here_120">Get it on Google Play <span aria-hidden="true">↗</span></a>
-            <a class="button button-outline" href="https://apps.apple.com/us/app/return-here-a-moment/id6803208554">View on the App Store <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" data-store="ios" href="https://apps.apple.com/us/app/return-here-a-moment/id6803208554">Download on the App Store <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" data-store="android" href="https://play.google.com/store/apps/details?id=ai.forgedtools.here&amp;referrer=utm_source%3Dforgedtools%26utm_medium%3Dwebsite%26utm_campaign%3Dreturn_here_120">Get it on Google Play <span aria-hidden="true">↗</span></a>
           </div>
           <p class="purchase">US $2.99 one time <span aria-hidden="true">·</span> No account <span aria-hidden="true">·</span> No subscription</p>
           <p class="release-note">The expanded edition is available on iPhone, iPad, and Android.</p>
@@ -50,10 +66,21 @@
           <div class="halo halo-one" aria-hidden="true"></div>
           <div class="halo halo-two" aria-hidden="true"></div>
           <div class="halo halo-three" aria-hidden="true"></div>
-          <div class="icon-plinth">
-            <img src="/assets/return-here-icon.png" width="360" height="360" alt="Return Here app icon: a cream spiral on a navy background" fetchpriority="high">
+          <div class="phone" aria-label="Interactive preview of Return Here">
+            <div class="phone-screen">
+              <p class="phone-title" aria-hidden="true">HERE</p>
+              <p class="phone-phrase is-soft" id="phrase" role="status">Go ahead. Press it.</p>
+              <div class="press-wrap">
+                <span class="press-ring" aria-hidden="true"></span>
+                <button class="press" id="press" type="button">Here</button>
+              </div>
+              <p class="phone-hint" id="press-hint">Tap for a phrase. Hold to breathe first.</p>
+              <button class="phone-link" id="breathe-auto" type="button">Breathe with me</button>
+              <p class="phone-foot" aria-hidden="true">A small moment to be present.</p>
+            </div>
           </div>
-          <p class="hero-art-note">A moment, not a destination.</p>
+          <p class="hero-art-note">Try it. This is the whole idea.</p>
+          <p class="hero-art-fine">A silent browser preview. In the app, a voice speaks each phrase. Nothing here is recorded.</p>
         </div>
       </div>
       <div class="wrap hero-bottom"><span>MADE FOR RIGHT NOW</span><span>SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
@@ -74,27 +101,9 @@
       </div>
     </section>
 
-    <section class="breathing-section mist-panel" aria-labelledby="breathing-title">
-      <div class="wrap breathing-grid">
-        <div class="breathing-copy">
-          <p class="eyebrow">02 / Feel the pause</p>
-          <h2 id="breathing-title">Four seconds in.<br><em>Four seconds out.</em></h2>
-          <p>Sometimes a small pause is enough to change the pace. Try the breathing rhythm that comes before a phrase in Return Here.</p>
-          <p class="fine-print">This is a silent browser preview. In the app, the rhythm leads into a spoken phrase. Releasing the button early also plays the next phrase.</p>
-        </div>
-        <div class="breathing-demo" aria-label="Interactive breathing rhythm preview">
-          <p class="demo-kicker">A MOMENT TO YOURSELF</p>
-          <div class="breath-orb" id="breath-orb" aria-hidden="true"><div class="breath-core"><span id="breath-count">4</span></div></div>
-          <p class="breath-state" id="breath-state" role="status">Ready when you are.</p>
-          <button class="breath-button" id="breath-start" type="button">Try the 4 + 4 rhythm <span aria-hidden="true">↗</span></button>
-          <p class="demo-footnote">A visual preview. No sound or data collection.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="inside-section paper-panel" id="inside" aria-labelledby="inside-title">
       <div class="wrap">
-        <div class="section-top"><p class="eyebrow">03 / The words</p><span class="side-label">50 PHRASES · 4 VOICES</span></div>
+        <div class="section-top"><p class="eyebrow">02 / The words</p><span class="side-label">50 PHRASES · 4 VOICES</span></div>
         <div class="editorial-grid inside-header">
           <h2 id="inside-title">The right words<br><em>for this moment.</em></h2>
           <p class="editorial-copy">A short phrase can steady you, challenge an assumption, or help you move. Three collections, each with a different purpose.</p>
@@ -110,7 +119,7 @@
     <section class="voices-section dark-panel" aria-labelledby="voices-title">
       <div class="wrap voices-grid">
         <div>
-          <p class="eyebrow light-eyebrow">04 / Find your voice</p>
+          <p class="eyebrow light-eyebrow">03 / Find your voice</p>
           <h2 id="voices-title">Different voices.<br><em>The same intention.</em></h2>
           <p>Every phrase is available in four distinct voices. Choose the one you want to hear today.</p>
         </div>
@@ -126,7 +135,7 @@
     <section class="leave-section paper-panel" aria-labelledby="leave-title">
       <div class="wrap leave-grid">
         <div class="leave-copy">
-          <p class="eyebrow">05 / Leave Here</p>
+          <p class="eyebrow">04 / Leave Here</p>
           <h2 id="leave-title">Not everything<br><em>needs to follow you.</em></h2>
           <p>Some things need a place to be put down. Leave Here gives you a little paper, a moment to write, and a way to let the thought go.</p>
           <p>No journal to manage. No entry to revisit. Just a moment of release, and a way back to Here.</p>
@@ -140,12 +149,29 @@
 
     <section class="principles-section mist-panel" aria-labelledby="principles-title">
       <div class="wrap">
-        <p class="eyebrow">06 / Intentionally simple</p>
+        <p class="eyebrow">05 / Intentionally simple</p>
         <h2 id="principles-title">More space.<br><em>Less everything else.</em></h2>
         <div class="principles">
           <article><span class="principle-icon" aria-hidden="true">◎</span><h3>Yours for $2.99.</h3><p>One purchase. No subscription, upgrade treadmill, or recurring payment. Prices vary by region.</p></article>
           <article><span class="principle-icon" aria-hidden="true">◌</span><h3>Present, not connected.</h3><p>Spoken audio is included in the app and works offline after installation.</p></article>
           <article><span class="principle-icon" aria-hidden="true">✳</span><h3>Private by design.</h3><p>No account, ads, tracking, or personal data collection. <a href="/privacy.html">Read the privacy policy</a>.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section paper-panel" id="questions" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div>
+          <p class="eyebrow">06 / Fair questions</p>
+          <h2 id="faq-title">Before<br><em>you press.</em></h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>Is it really one payment?</summary><p>Yes. US $2.99 once, and it’s yours. No subscription, no upgrades to buy later. Prices vary by region.</p></details>
+          <details><summary>Does it need the internet?</summary><p>No. The spoken audio is included in the app and works offline after installation.</p></details>
+          <details><summary>What does it know about me?</summary><p>Nothing. No account, no ads, no tracking, no personal data collection. <a href="/privacy.html">Read the privacy policy</a>.</p></details>
+          <details><summary>Is this meditation or therapy?</summary><p>Neither. It’s a short pause: a button, a breath, a few words. It isn’t medical or mental health care.</p></details>
+          <details><summary>How long does it take?</summary><p>As long as you like. One phrase takes a few seconds. Stay for one or twenty.</p></details>
+          <details><summary>What does it run on?</summary><p>iPhone, iPad, and Android.</p></details>
         </div>
       </div>
     </section>
@@ -156,8 +182,8 @@
         <h2 id="final-title">Come back<br><em>to right now.</em></h2>
         <p>One button. A few words. A moment that's yours.</p>
         <div class="store-buttons" aria-label="Download Return Here">
-          <a class="button button-primary" href="https://play.google.com/store/apps/details?id=ai.forgedtools.here&amp;referrer=utm_source%3Dforgedtools%26utm_medium%3Dwebsite%26utm_campaign%3Dreturn_here_120">Get it on Google Play <span aria-hidden="true">↗</span></a>
-          <a class="button button-outline" href="https://apps.apple.com/us/app/return-here-a-moment/id6803208554">View on the App Store <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" data-store="ios" href="https://apps.apple.com/us/app/return-here-a-moment/id6803208554">Download on the App Store <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" data-store="android" href="https://play.google.com/store/apps/details?id=ai.forgedtools.here&amp;referrer=utm_source%3Dforgedtools%26utm_medium%3Dwebsite%26utm_campaign%3Dreturn_here_120">Get it on Google Play <span aria-hidden="true">↗</span></a>
         </div>
         <p class="purchase">US $2.99 once. No account. No subscription.</p>
         <p class="release-note">The expanded edition is available on iPhone, iPad, and Android.</p>
@@ -172,49 +198,137 @@
       <span class="copyright">© 2026 Forged Tools LLC</span>
     </div>
   </footer>
+  <div class="sticky-cta" id="sticky-cta" hidden>
+    <span><strong>Return Here</strong> US $2.99 once</span>
+    <a class="button button-primary" id="sticky-link" href="#get-the-app">Get the app <span aria-hidden="true">↗</span></a>
+  </div>
   <script>
     (() => {
-      const button = document.getElementById('breath-start');
-      const orb = document.getElementById('breath-orb');
-      const count = document.getElementById('breath-count');
-      const state = document.getElementById('breath-state');
-      let intervalId = null;
-      let elapsed = 0;
-      function reset() {
-        if (intervalId !== null) window.clearInterval(intervalId);
-        intervalId = null;
-        elapsed = 0;
-        orb.classList.remove('breathing-active');
-        count.textContent = '4';
-        state.textContent = 'Ready when you are.';
-        button.textContent = 'Try the 4 + 4 rhythm ↗';
+      /* --- Store buttons: put the visitor's own store first. Runs in the browser; nothing is sent anywhere. --- */
+      const ua = navigator.userAgent || '';
+      const isIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      const isAndroid = /Android/.test(ua);
+      const mine = isIOS ? 'ios' : isAndroid ? 'android' : null;
+      if (mine) {
+        document.querySelectorAll('.store-buttons').forEach((group) => {
+          const own = group.querySelector('[data-store="' + mine + '"]');
+          const other = group.querySelector('[data-store]:not([data-store="' + mine + '"])');
+          if (!own || !other) return;
+          group.prepend(own);
+          other.classList.replace('button-primary', 'button-outline');
+        });
+        const own = document.querySelector('[data-store="' + mine + '"]');
+        const sticky = document.getElementById('sticky-link');
+        if (own && sticky) sticky.href = own.href;
       }
-      button.addEventListener('click', () => {
-        reset();
-        orb.classList.add('breathing-active');
-        state.textContent = 'Inhale slowly.';
-        button.textContent = 'Restart the rhythm ↗';
-        const started = performance.now();
-        intervalId = window.setInterval(() => {
-          const nextElapsed = Math.min(8, Math.floor((performance.now() - started) / 1000));
-          if (nextElapsed === elapsed) return;
-          elapsed = nextElapsed;
-          if (elapsed >= 8) {
-            window.clearInterval(intervalId);
-            intervalId = null;
-            orb.classList.remove('breathing-active');
-            count.textContent = '✓';
-            state.textContent = 'That moment was yours.';
-            button.textContent = 'Try it again ↗';
-            return;
-          }
-          state.textContent = elapsed < 4 ? 'Inhale slowly.' : 'Exhale slowly.';
-          count.textContent = String(4 - (elapsed % 4));
-        }, 100);
+
+      /* --- The pressable preview --- */
+      const phrases = ['I am here.', 'The weight does not have to be carried all at once.'];
+      const press = document.getElementById('press');
+      const phrase = document.getElementById('phrase');
+      const hint = document.getElementById('press-hint');
+      const auto = document.getElementById('breathe-auto');
+      const HOLD_MS = 350;
+      let index = -1, shown = 0, swapId = 0;
+      let holdTimer = null, breathTimers = [], breathing = false, held = false, skipClick = false;
+
+      function setText(text, soft) {
+        const id = ++swapId;
+        phrase.classList.add('is-swapping');
+        window.setTimeout(() => {
+          if (id !== swapId) return;
+          phrase.textContent = text;
+          phrase.classList.toggle('is-soft', soft);
+          phrase.classList.remove('is-swapping');
+        }, 220);
+      }
+      function stopBreath() {
+        breathTimers.forEach(window.clearTimeout);
+        breathTimers = [];
+        breathing = false;
+        press.classList.remove('is-inhale', 'is-exhale');
+      }
+      function showPhrase() {
+        stopBreath();
+        index = (index + 1) % phrases.length;
+        shown += 1;
+        press.classList.add('is-touched');
+        setText(phrases[index], false);
+        hint.textContent = shown < 2
+          ? 'In the app, a voice says it. Hold to breathe first.'
+          : '48 more in the app, in four voices.';
+      }
+      function startBreath() {
+        stopBreath();
+        breathing = true;
+        press.classList.add('is-touched', 'is-inhale');
+        setText('Breathe in.', true);
+        breathTimers.push(window.setTimeout(() => {
+          press.classList.replace('is-inhale', 'is-exhale');
+          setText('Breathe out.', true);
+        }, 4000));
+        breathTimers.push(window.setTimeout(showPhrase, 8000));
+      }
+      press.addEventListener('pointerdown', (event) => {
+        if (event.button) return;
+        held = false;
+        window.clearTimeout(holdTimer);
+        holdTimer = window.setTimeout(() => { held = true; startBreath(); }, HOLD_MS);
       });
+      function release() {
+        window.clearTimeout(holdTimer);
+        if (!held) return;
+        held = false;
+        skipClick = true;
+        window.setTimeout(() => { skipClick = false; }, 400);
+        if (breathing) showPhrase(); /* letting go early plays the next phrase, as in the app */
+      }
+      press.addEventListener('pointerup', release);
+      press.addEventListener('pointercancel', release);
+      press.addEventListener('pointerleave', release);
+      press.addEventListener('contextmenu', (event) => event.preventDefault());
+      press.addEventListener('click', () => {
+        if (skipClick) { skipClick = false; return; }
+        showPhrase();
+      });
+      auto.addEventListener('click', startBreath);
       document.addEventListener('visibilitychange', () => {
-        if (document.hidden && intervalId !== null) reset();
+        if (document.hidden && breathing) { stopBreath(); setText('Go ahead. Press it.', true); }
       });
+
+      /* --- Small-screen download bar: appears once the hero buttons scroll away --- */
+      const bar = document.getElementById('sticky-cta');
+      const heroButtons = document.querySelector('.hero .store-buttons');
+      const finalSection = document.getElementById('get-the-app');
+      if (bar && 'IntersectionObserver' in window) {
+        const seen = new Map();
+        const update = () => {
+          const show = seen.get(heroButtons) === false && seen.get(finalSection) !== true
+            && heroButtons.getBoundingClientRect().top < 0;
+          bar.hidden = false;
+          bar.classList.toggle('is-visible', show);
+        };
+        const watcher = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => seen.set(entry.target, entry.isIntersecting));
+          update();
+        });
+        watcher.observe(heroButtons);
+        watcher.observe(finalSection);
+      }
+
+      /* --- Sections ease in as they arrive (skipped when reduced motion is on) --- */
+      const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!calm && 'IntersectionObserver' in window) {
+        const items = document.querySelectorAll('main section:not(.hero) .wrap > *, .steps article, .collection, .voices-list > div, .principles article, .faq-list details');
+        const reveal = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-in');
+            reveal.unobserve(entry.target);
+          });
+        }, { rootMargin: '0px 0px -8% 0px' });
+        items.forEach((item) => { item.classList.add('reveal'); reveal.observe(item); });
+      }
     })();
   </script>
 </body>
