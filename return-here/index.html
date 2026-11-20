@@ -18,7 +18,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Return Here: Take a moment. It’s yours. A cream spiral on navy.">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/return-here.css?v=2026-11-live-demo-1">
+  <link rel="stylesheet" href="/return-here.css?v=2026-11-live-demo-2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,7 +80,7 @@
             </div>
           </div>
           <p class="hero-art-note">Try it. This is the whole idea.</p>
-          <p class="hero-art-fine">A silent browser preview. In the app, a voice speaks each phrase. Nothing here is recorded.</p>
+          <p class="hero-art-fine">A browser preview with recordings from the app. Sound on. Nothing you do here is tracked.</p>
         </div>
       </div>
       <div class="wrap hero-bottom"><span>MADE FOR RIGHT NOW</span><span>SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
@@ -116,18 +116,18 @@
       </div>
     </section>
 
-    <section class="voices-section dark-panel" aria-labelledby="voices-title">
+    <section class="voices-section dark-panel" id="voices" aria-labelledby="voices-title">
       <div class="wrap voices-grid">
         <div>
           <p class="eyebrow light-eyebrow">03 / Find your voice</p>
           <h2 id="voices-title">Different voices.<br><em>The same intention.</em></h2>
-          <p>Every phrase is available in four distinct voices. Choose the one you want to hear today.</p>
+          <p>Every phrase is available in four distinct voices. Press a name and listen. Choose the one you want to hear today.</p>
         </div>
-        <div class="voices-list" aria-label="The four voices">
-          <div><span class="voice-index">01</span><span class="voice-name">Willow</span><span class="voice-character">Gentle</span></div>
-          <div><span class="voice-index">02</span><span class="voice-name">Oak</span><span class="voice-character">Steady</span></div>
-          <div><span class="voice-index">03</span><span class="voice-name">Teak</span><span class="voice-character">Deeper</span></div>
-          <div><span class="voice-index">04</span><span class="voice-name">Palm</span><span class="voice-character">Brighter</span></div>
+        <div class="voices-list" role="group" aria-label="Hear the four voices">
+          <button type="button" class="voice" data-voice="willow" aria-pressed="true"><span class="voice-index">01</span><span class="voice-name">Willow</span><span class="voice-play" aria-hidden="true"></span><span class="visually-hidden">Play a phrase in this voice</span></button>
+          <button type="button" class="voice" data-voice="oak" aria-pressed="false"><span class="voice-index">02</span><span class="voice-name">Oak</span><span class="voice-play" aria-hidden="true"></span><span class="visually-hidden">Play a phrase in this voice</span></button>
+          <button type="button" class="voice" data-voice="teak" aria-pressed="false"><span class="voice-index">03</span><span class="voice-name">Teak</span><span class="voice-play" aria-hidden="true"></span><span class="visually-hidden">Play a phrase in this voice</span></button>
+          <button type="button" class="voice" data-voice="palm" aria-pressed="false"><span class="voice-index">04</span><span class="voice-name">Palm</span><span class="voice-play" aria-hidden="true"></span><span class="visually-hidden">Play a phrase in this voice</span></button>
         </div>
       </div>
     </section>
@@ -223,7 +223,53 @@
       }
 
       /* --- The pressable preview --- */
-      const phrases = ['I am here.', 'The weight does not have to be carried all at once.'];
+      const phrases = [
+        { id: '05', text: 'The weight does not have to be carried all at once.' },
+        { id: '08', text: 'Move forward without rushing.' },
+        { id: '13', text: 'You can handle what comes next.' }
+      ];
+      const voiceNames = { willow: 'Willow', oak: 'Oak', teak: 'Teak', palm: 'Palm' };
+      const voiceButtons = document.querySelectorAll('.voice');
+      const clipUrl = (voiceId, phraseId) => '/assets/audio/' + voiceId + '-' + phraseId + '.mp3';
+      const player = new Audio();
+      player.preload = 'none';
+      let voice = 'willow', unlocked = false, playingButton = null;
+      function markPlaying(button) {
+        if (playingButton) playingButton.classList.remove('is-playing');
+        playingButton = button;
+        if (button) button.classList.add('is-playing');
+      }
+      function stopAudio() { player.pause(); markPlaying(null); }
+      function speak(phraseId, button) {
+        stopAudio();
+        player.muted = false;
+        player.src = clipUrl(voice, phraseId);
+        markPlaying(button || null);
+        const attempt = player.play();
+        if (attempt) attempt.catch(() => markPlaying(null)); /* words still show if sound is blocked */
+      }
+      /* Phones only allow sound that starts from a touch. A held breath ends 8 seconds later, so wake the player on the touch itself. */
+      function unlock() {
+        if (unlocked) return;
+        unlocked = true;
+        player.muted = true;
+        player.src = clipUrl(voice, phrases[0].id);
+        const attempt = player.play();
+        if (attempt) attempt.then(() => { player.pause(); player.muted = false; }).catch(() => { player.muted = false; });
+      }
+      player.addEventListener('ended', () => markPlaying(null));
+      function chooseVoice(voiceId) {
+        voice = voiceId;
+        voiceButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.voice === voiceId)));
+      }
+      voiceButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          if (playingButton === button) { stopAudio(); return; }
+          unlocked = true;
+          chooseVoice(button.dataset.voice);
+          speak(phrases[0].id, button);
+        });
+      });
       const press = document.getElementById('press');
       const phrase = document.getElementById('phrase');
       const hint = document.getElementById('press-hint');
@@ -253,13 +299,15 @@
         index = (index + 1) % phrases.length;
         shown += 1;
         press.classList.add('is-touched');
-        setText(phrases[index], false);
-        hint.textContent = shown < 2
-          ? 'In the app, a voice says it. Hold to breathe first.'
-          : '48 more in the app, in four voices.';
+        setText(phrases[index].text, false);
+        speak(phrases[index].id);
+        hint.textContent = shown < 3
+          ? 'Spoken by ' + voiceNames[voice] + '. Hold to breathe first.'
+          : '47 more in the app. Four voices to choose from below.';
       }
       function startBreath() {
         stopBreath();
+        stopAudio();
         breathing = true;
         press.classList.add('is-touched', 'is-inhale');
         setText('Breathe in.', true);
@@ -271,6 +319,7 @@
       }
       press.addEventListener('pointerdown', (event) => {
         if (event.button) return;
+        unlock();
         held = false;
         window.clearTimeout(holdTimer);
         holdTimer = window.setTimeout(() => { held = true; startBreath(); }, HOLD_MS);
@@ -291,9 +340,11 @@
         if (skipClick) { skipClick = false; return; }
         showPhrase();
       });
-      auto.addEventListener('click', startBreath);
+      auto.addEventListener('click', () => { unlock(); startBreath(); });
       document.addEventListener('visibilitychange', () => {
-        if (document.hidden && breathing) { stopBreath(); setText('Go ahead. Press it.', true); }
+        if (!document.hidden) return;
+        stopAudio();
+        if (breathing) { stopBreath(); setText('Go ahead. Press it.', true); }
       });
 
       /* --- Small-screen download bar: appears once the hero buttons scroll away --- */
@@ -319,7 +370,7 @@
       /* --- Sections ease in as they arrive (skipped when reduced motion is on) --- */
       const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!calm && 'IntersectionObserver' in window) {
-        const items = document.querySelectorAll('main section:not(.hero) .wrap > *, .steps article, .collection, .voices-list > div, .principles article, .faq-list details');
+        const items = document.querySelectorAll('main section:not(.hero) .wrap > *, .steps article, .collection, .voices-list > .voice, .principles article, .faq-list details');
         const reveal = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
